@@ -8,12 +8,12 @@ public class Solution {
     public static void main(String[] args) {
 
         try (Scanner in = new Scanner(System.in)) {
-            int[] elements = parseElements(in);
+            int[] elements = parseIntegerArray(in);
             System.out.println(Arrays.stream(elements).mapToLong(i -> i).sum());
         }
     }
 
-    private static int[] parseElements(Scanner in) {
+    private static int[] parseIntegerArray(Scanner in) {
         int numElements = in.nextInt();
         int[] result = new int[numElements];
 
