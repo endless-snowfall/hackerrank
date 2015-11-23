@@ -10,8 +10,6 @@ public class Solution {
     public static void main(String[] args) {
         try (Scanner in = new Scanner(System.in)) {
             int[] elements = parseIntegerArray(in);
-            Map<Integer, Long> groupBySign = Arrays.stream(elements).boxed()
-                .collect(Collectors.groupingBy(i -> (int) Math.signum(i), Collectors.counting()));
 
             if (elements.length == 0) {
                 System.out.println(0);
@@ -19,6 +17,9 @@ public class Solution {
                 System.out.println(0);
                 return;
             }
+
+            Map<Integer, Long> groupBySign = Arrays.stream(elements).boxed()
+                .collect(Collectors.groupingBy(i -> (int) Math.signum(i), Collectors.counting()));
 
             System.out.println(divideAndFormat(groupBySign.get(1), elements.length));
             System.out.println(divideAndFormat(groupBySign.get(-1), elements.length));
